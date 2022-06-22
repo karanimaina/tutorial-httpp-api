@@ -1,3 +1,8 @@
 package com.example.models
 
-data class Customer()
+
+
+@kotlinx.serialization.Serializable
+data class Customer(){
+
+}
