@@ -15,7 +15,11 @@ fun Route.customerRouting(){
           call.respondText  ("No customers found",status = HttpStatusCode.OK)
       }
         }
-        get("{id?}"){}
+        get("{id?}"){
+            val id = call.parameters["id"]?:return@get call.respondText("missing id",status= HttpStatusCode.BadRequest)
+            val customer = customerStorage.find{it.id==id} ?:return@get call.respondText ( "No customer found", status= HttpStatusCode.NotFound )
+            call.respond(customer)
+        }
         post {}
         delete ("{id?}"){  }
     }
