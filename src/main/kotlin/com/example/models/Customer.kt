@@ -9,3 +9,5 @@ data class Customer(val id: String, val firstName: String, val lastName: String,
 val customerStorage = mutableListOf<Customer>()
 
 
+
+
